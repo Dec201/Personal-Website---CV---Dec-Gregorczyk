@@ -173,9 +173,17 @@ a.primary-home-a:hover {
 
 
 .primary-home-down-btn-fixed {
-    display: none;
+    all: unset;
+    display: block;
+    position: fixed;
+    top: 0;
     background-color: none;
     cursor: pointer;
+    z-index: 9999;
+}
+
+.primary-home-down-btn-fixed-hidden {
+    display:none;
 }
 
 /* Images */
@@ -185,8 +193,19 @@ a.primary-home-a:hover {
 }
 
 .down-img:hover {
+    border-radius: 80%;
+    animation: alterGrayBackground 0.15s ease-in-out 0.15s forwards;
+}
+
+.up-img {
+    opacity: 20%;
+    background-color: none;
+}
+
+.up-img:hover {
     border-radius: 100%;
-    animation: alterGrayBackground 0.25s ease-in-out 0.25s forwards;
+    opacity: 70%;
+    animation: alterGrayBackground 0.15s ease-in-out 0.15s forwards, opacity 1s ease-in;
 }
 
 .dec-img {
@@ -241,27 +260,19 @@ footer a {
 
 /* Media Queries */
 
-@media (max-width: 700px) {
+@media (min-width: 700px) {
+
 
     .primary-home-down-btn-fixed {
-        display: block;
-        position: fixed;
-        top: 0;
-        background-color: none;
-
+        display:none;
     }
-
-}
-
-
-
-@media (min-width: 700px) {
 
     .primary-home-link {
         display:none;
     }
 
     .primary-navigation {
+        margin-top:10px;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;

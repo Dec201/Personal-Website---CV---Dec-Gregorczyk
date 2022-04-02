@@ -1,4 +1,12 @@
-// js, jquery
+// js, jquery mix
+
+
+// Variables
+
+const buttonToggle = document.querySelector(".primary-home-down-btn");
+const navToggle = document.querySelector(".primary-navigation");
+const secondayNavBtn = document.getElementById("primary-home-down-btn-fixed");
+const selectSectionOne = document.getElementById("section-one");
 
 
 //Footer - Date
@@ -9,11 +17,6 @@ document.getElementById("selectYear").innerHTML = selectYear;
 
 
 // Nav button Rotation // Hide/Unhide Navbar
-
-const buttonToggle = document.querySelector(".primary-home-down-btn");
-const navToggle = document.querySelector(".primary-navigation");
-const nav = document.querySelector("nav");
-
 
 buttonToggle.addEventListener("click", () => {
 
@@ -34,10 +37,32 @@ buttonToggle.addEventListener("click", () => {
 
 })
 
+// secondary Nav button - link to page top + hidden at top height
+
+$(secondayNavBtn).click(function () { 
+   
+    $(window).scrollTop(0);
+   
+});
+
+$(window).scroll(function () { 
+
+    if (window.scrollY > (selectSectionOne.offsetTop)) {
+        $(secondayNavBtn).removeClass("primary-home-down-btn-fixed-hidden");
+    } else {
+        $(secondayNavBtn).addClass("primary-home-down-btn-fixed-hidden");
+    }
+
+});
+
+
+
+
 
 // window width 700px set nav visible
 
 addEventListener("resize", () => {
+
     if(screen.width >= 700) {
         navToggle.setAttribute("data-visible", "true");
     }
